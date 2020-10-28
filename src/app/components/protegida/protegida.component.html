@@ -1,1 +1,12 @@
-<p>protegida works!</p>
+<h2>Perfil de usuario</h2>
+
+<div *ngIf="auth.user$ | async as user">
+    <code>
+        {{user | json}}
+    </code>
+    <ul>
+        <li>{{user.name}}</li>
+        <li>{{user.email}}</li>
+        <li><img src="{{user.picture}}"></li>
+    </ul>
+</div>
