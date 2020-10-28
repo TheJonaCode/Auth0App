@@ -13,6 +13,10 @@
           <a class="nav-link" routerLink="/protegida">Protegida</a>
       </ul>
       <span class="navbar-text">
+        <div  *ngIf="auth.user$ | async as user">
+          <img [src]="user.picture" class="img-thumbnail">  
+        </div>
+       <div>
         <ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut">
             <button class="btn btn-outline-danger" (click)="auth.logout({ returnTo: document.location.origin })">
               Log out
@@ -22,6 +26,7 @@
           <ng-template #loggedOut>
             <button class="btn btn-outline-success" (click)="auth.loginWithRedirect()">Log in</button>
           </ng-template>
+        </div>
       </span>
     </div>
     </div>
