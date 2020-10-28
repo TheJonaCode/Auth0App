@@ -13,7 +13,9 @@
           <a class="nav-link" routerLink="/protegida">Protegida</a>
       </ul>
       <span class="navbar-text">
-        Navbar text with an inline element
+        <button class="btn btn-outline-success"
+            (click)="auth.loginWithRedirect()">Log in
+        </button>
       </span>
     </div>
     </div>
